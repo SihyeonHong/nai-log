@@ -1,17 +1,15 @@
 @import "tailwindcss";
 
+@variant dark (&:is(.dark *));
+
+@import "./variables.css";
+
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
 }
 
 * {
@@ -28,6 +26,9 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  transition:
+    background-color 0.1s ease,
+    color 0.1s ease;
 }

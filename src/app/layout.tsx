@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+
 import "@/styles/globals.css";
+import ThemeProvider from "@/provider/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Nai.log",
-  description: "홍시현의 개발 블로그",
+  title: "nai.log",
+  description: "모르는 게 더 많을 나이",
 };
 
 export default function RootLayout({
@@ -12,8 +14,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <body className={`antialiased`}>{children}</body>
+    <html lang="ko" suppressHydrationWarning>
+      <body className={`antialiased`}>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }
