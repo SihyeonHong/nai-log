@@ -1,10 +1,11 @@
-.root {
-  --background: #ffffff;
-  --foreground: #171717;
-  /* --primary: #550066; */
+:root {
+  --background: ##faf5ff; /* Tailwind's purple-50 */
+  --foreground: #1f2937; /* Tailwind's gray-800 */
+  --border: #d1d5db; /* Tailwind's gray-300 */
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #1a1a1a; /* Tailwind's gray-900 */
+  --foreground: #e0e0e0; /* Tailwind's gray-200 */
+  --border: #4b5563; /* Tailwind's gray-600 */
 }

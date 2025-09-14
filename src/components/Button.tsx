@@ -1,30 +1,58 @@
-"use client";
-import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
+// 미완
 
-export default function Button() {
-  const { theme, resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "primary" | "secondary";
+  size?: "sm" | "md" | "lg";
+  disabled?: boolean;
+  fullWidth?: boolean;
+  onClick?: () => void;
+}
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+export default function Button({
+  children,
+  variant = "primary",
+  size = "md",
+  fullWidth = false,
+  onClick,
+  ...props
+}: ButtonProps) {
+  const baseClasses =
+    "inline-flex items-center justify-center font-medium rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50";
 
-  if (!mounted) {
-    // Prevents hydration mismatch
-    return <button disabled>Loading...</button>;
-  }
+  //   const variantClasses = {
+  //     primary:
+  //       "bg-primary text-primary-foreground hover:bg-primary-hover active:bg-primary-active focus-visible:ring-primary",
+  //     secondary:
+  //       "bg-secondary text-secondary-foreground hover:bg-secondary-hover active:bg-secondary-active focus-visible:ring-secondary",
+  //   };
 
-  const toggleTheme = () => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+  const variantClasses = {
+    primary:
+      "border-2 border-primary text-primary hover:border-primary active:border-primary-active focus-visible:ring-primary",
+    secondary:
+      "border-2 border-secondary text-secondary hover:border-secondary active:border-secondary-active focus-visible:ring-secondary",
   };
 
+  const sizeClasses = {
+    sm: "h-9 px-3 text-sm",
+    md: "h-10 px-4 text-base",
+    lg: "h-11 px-6 text-lg",
+  };
+
+  const widthClass = fullWidth ? "w-full" : "";
+
+  const className = [
+    baseClasses,
+    variantClasses[variant],
+    sizeClasses[size],
+    widthClass,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
-    <button
-      className="cursor-pointer p-3 text-pink-700 dark:text-pink-300"
-      onClick={toggleTheme}
-    >
-      Dark / Light
+    <button className={className} onClick={onClick} {...props}>
+      {children}
     </button>
   );
 }
