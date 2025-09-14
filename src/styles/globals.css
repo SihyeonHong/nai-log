@@ -6,6 +6,8 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Asta+Sans:wght@300..800&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Asta+Sans:wght@300..800&family=Jua&display=swap");
+
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 @theme inline {
@@ -14,6 +16,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-border: var(--border);
+  --color-title: var(--title);
+  --color-description: var(--description);
 
   /* 새로 추가할 Button 관련 변수들 */
   --color-primary-foreground: var(--primary-foreground);
@@ -23,6 +27,8 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary-hover: var(--secondary-hover);
   --color-secondary-active: var(--secondary-active);
+
+  --font-title: "Jua", "Pretendard", "Asta Sans", sans-serif;
 }
 
 * {
@@ -42,8 +48,8 @@
 body {
   background: rgb(var(--color-background));
   color: rgb(var(--color-foreground));
+  border-color: rgb(var(--color-border));
   transition:
     background-color 0.1s ease,
     color 0.1s ease;
-  border-color: rgb(var(--color-border));
 }

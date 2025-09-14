@@ -23,15 +23,15 @@ export default function ThemeSwitcher() {
   const lightClasses = `bg-gray-200 dark:bg-gray-600`;
   const resolvedClasses = resolvedTheme === "dark" ? darkClasses : lightClasses;
 
-  const baseClassses = `relative inline-flex items-center w-13 h-7
+  const baseClassses = `relative inline-flex items-center w-11 h-6
     rounded-full border-2 border-transparent
     transition-colors duration-200 ease-in-out focus:outline-none 
     focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2
     dark:focus:ring-offset-gray-800`;
 
-  const buttonClasses = `inline-block h-6 w-6 transform rounded-full bg-white
+  const buttonClasses = `inline-block h-5 w-5 transform rounded-full bg-white
     shadow ring-0 transition duration-200 ease-in-out
-    ${resolvedTheme === "dark" ? "translate-x-6" : "translate-x-0"}`;
+    ${resolvedTheme === "dark" ? "translate-x-5" : "translate-x-0"}`;
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
@@ -41,9 +41,9 @@ export default function ThemeSwitcher() {
     <button className={cn(baseClassses, resolvedClasses)} onClick={toggleTheme}>
       <span className={cn(buttonClasses)}>
         {resolvedTheme === "dark" ? (
-          <Moon className="mx-auto h-6 w-6 p-1 text-gray-800" />
+          <Moon className="mx-auto h-5 w-5 p-1 text-gray-800" />
         ) : (
-          <Sun className="mx-auto h-6 w-6 p-1 text-gray-800" />
+          <Sun className="mx-auto h-5 w-5 p-1 text-gray-800" />
         )}
       </span>
     </button>

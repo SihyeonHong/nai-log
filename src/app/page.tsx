@@ -1,11 +1,13 @@
-import Tester from "@/components/Tester";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
+import Container from "@/components/Container";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
-export default function Home() {
+export default function Page() {
   return (
-    <div>
-      <ThemeSwitcher />
-      <Tester />
+    <div className="flex min-h-screen w-full flex-col">
+      <Header />
+      <Container />
+      <Footer />
     </div>
   );
 }
