@@ -1,10 +1,12 @@
 import Button from "@/components/ui/Button";
 import Divider from "@/components/ui/Divider";
 
+import PostTitle from "./ui/PostTitle";
+
 export default function Tester() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello!</h1>
+      <PostTitle>[Tailwind] 이것은 블로그 제목입니다</PostTitle>
       <p className="p-3">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
