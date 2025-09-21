@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import formatDate from "@/utils/formatDate";
 import { getAllPosts } from "@/utils/github";
 
 // ISR 설정 - 1시간마다 재생성
@@ -37,8 +38,8 @@ export default async function BlogPage() {
               </h2>
 
               <div className="mb-4 text-gray-600">
-                <time dateTime={post.meta.uploadedAt}>
-                  {new Date(post.meta.uploadedAt).toLocaleDateString("ko-KR")}
+                <time dateTime={formatDate(post.meta.uploadedAt)}>
+                  {formatDate(post.meta.uploadedAt)}
                 </time>
               </div>
 
