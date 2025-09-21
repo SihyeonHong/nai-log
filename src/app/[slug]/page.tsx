@@ -2,24 +2,26 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import formatDate from "@/utils/formatDate";
 import { getAllPosts, getMarkdownContent } from "@/utils/github";
 
-// ISR 설정
-export const revalidate = 3600;
+export const revalidate = 3600; // ISR 설정
 
-interface BlogPostProps {
+interface PostProps {
   params: {
     slug: string;
   };
 }
 
-export default async function BlogPost({ params }: BlogPostProps) {
-  const { slug } = params;
+export default async function Page({ params }: PostProps) {
+  const { slug } = await params;
   const post = await getMarkdownContent(`${slug}.md`);
 
   if (!post) {
     notFound();
   }
+
+  const formattedDate = formatDate(post.meta.uploadedAt);
 
   return (
     <div className="container mx-auto max-w-4xl px-4 py-8">
@@ -28,9 +30,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
           <h1 className="mb-4 text-4xl">{post.meta.title}</h1>
 
           <div className="mb-4 text-gray-600">
-            <time dateTime={post.meta.uploadedAt}>
-              {new Date(post.meta.uploadedAt).toLocaleDateString("ko-KR")}
-            </time>
+            <time dateTime={formattedDate}>{formattedDate}</time>
           </div>
 
           {post.meta.tags && post.meta.tags.length > 0 && (
@@ -68,8 +68,9 @@ export async function generateStaticParams() {
 // generateMetadata - 동적 메타데이터 생성
 export async function generateMetadata({
   params,
-}: BlogPostProps): Promise<Metadata> {
-  const post = await getMarkdownContent(`${params.slug}.md`);
+}: PostProps): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getMarkdownContent(`${slug}.md`);
 
   if (!post) {
     return {
