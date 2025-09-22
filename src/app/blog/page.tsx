@@ -2,6 +2,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import Header from "@/components/Header";
+import PostTitle from "@/components/ui/PostTitle";
+import TagsContainer from "@/components/ui/TagsContainer";
 import formatDate from "@/utils/formatDate";
 import { getAllPosts } from "@/utils/github";
 
@@ -20,8 +23,9 @@ export default async function BlogPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-8 text-4xl">블로그</h1>
-
+      <Header />
+      <PostTitle>블로그</PostTitle>
+      {/* mb-8 text-4xl */}
       {posts.length === 0 ? (
         <p className="text-gray-500">아직 포스트가 없습니다.</p>
       ) : (
@@ -47,17 +51,11 @@ export default async function BlogPage() {
                 <p className="mb-4 text-gray-700">{post.meta.description}</p>
               )}
 
+              <span className="cursor-default rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700">
+                bg-gray-200 text-gray-700
+              </span>
               {post.meta.tags && post.meta.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {post.meta.tags.map((tag: string) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+                <TagsContainer tags={post.meta.tags} />
               )}
             </article>
           ))}

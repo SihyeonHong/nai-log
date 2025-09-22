@@ -1,14 +1,24 @@
 :root {
+  /* 다크 or 라이트 테마 공통 변수 */
+  --title: #9562be; /* Tailwind's purple-800 */
+  --tag-background: #e2e0eb; /* Tailwind's gray-200에 보랏빛 추가 */
+  --tag-foreground: #374151; /* Tailwind's gray-700 */
+
+  --description: #776581;
+  --sub-description: #9ca3af; /* Tailwind's gray-400 */
+}
+
+:root {
+  /* light mode only */
   --background: ##faf5ff; /* Tailwind's purple-50 */
   --foreground: #1f2937; /* Tailwind's gray-800 */
+
   --border: #d1d5db; /* Tailwind's gray-300 */
-  --title: #9562be; /* Tailwind's purple-800 */
-  --description: #776581;
 }
 
 .dark {
   --background: #1a1a1a; /* Tailwind's gray-900 */
   --foreground: #e0e0e0; /* Tailwind's gray-200 */
+
   --border: #4b5563; /* Tailwind's gray-600 */
-  --sub-description: #9ca3af; /* Tailwind's gray-400 */
 }
