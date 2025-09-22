@@ -7,13 +7,13 @@ import { getAllPosts, getMarkdownContent } from "@/utils/github";
 
 export const revalidate = 3600; // ISR 설정
 
-interface PostProps {
-  params: {
+interface PageProps {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export default async function Page({ params }: PostProps) {
+export default async function Page({ params }: PageProps) {
   const { slug } = await params;
   const post = await getMarkdownContent(`${slug}.md`);
 
@@ -41,7 +41,9 @@ export async function generateStaticParams() {
 // generateMetadata - 동적 메타데이터 생성
 export async function generateMetadata({
   params,
-}: PostProps): Promise<Metadata> {
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const post = await getMarkdownContent(`${slug}.md`);
 
