@@ -1,3 +1,9 @@
+export interface Post {
+  slug: string;
+  meta: PostMeta;
+  content: string;
+}
+
 export interface PostMeta {
   // 필수 필드
   title: string;
@@ -10,18 +16,6 @@ export interface PostMeta {
   description?: string;
   thumbnail?: string;
   isFeatured?: boolean;
-}
-
-export interface Post {
-  slug: string;
-  meta: PostMeta;
-  content: string;
-}
-
-export interface PostListItem {
-  slug: string;
-  meta: PostMeta;
-  fileName: string;
 }
 
 export interface GitHubFile {

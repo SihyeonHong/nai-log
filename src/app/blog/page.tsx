@@ -1,5 +1,4 @@
 // app/blog/page.tsx
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import Header from "@/components/Header";
@@ -11,12 +10,6 @@ import { getAllPosts } from "@/utils/github";
 // ISR 설정 - 1시간마다 재생성
 export const revalidate = 3600;
 
-// 메타데이터 설정
-export const metadata: Metadata = {
-  title: "블로그",
-  description: "개발 블로그입니다.",
-};
-
 // Server Component - async 함수로 직접 데이터 페칭
 export default async function BlogPage() {
   const posts = await getAllPosts();
@@ -25,7 +18,6 @@ export default async function BlogPage() {
     <div className="container mx-auto px-4 py-8">
       <Header />
       <PostTitle>블로그</PostTitle>
-      {/* mb-8 text-4xl */}
       {posts.length === 0 ? (
         <p className="text-gray-500">아직 포스트가 없습니다.</p>
       ) : (

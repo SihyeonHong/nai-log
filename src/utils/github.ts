@@ -4,7 +4,6 @@ import html from "remark-html";
 
 import type {
   Post,
-  PostListItem,
   PostMeta,
   GitHubFile,
   GitHubApiResponse,
@@ -90,9 +89,9 @@ export async function getMarkdownContent(
 }
 
 // 모든 포스트 메타데이터 가져오기
-export async function getAllPosts(): Promise<PostListItem[]> {
+export async function getAllPosts(): Promise<Post[]> {
   const files = await getMarkdownFiles();
-  const posts: PostListItem[] = [];
+  const posts: Post[] = [];
 
   for (const file of files) {
     const postData = await getMarkdownContent(file.name);
@@ -100,7 +99,7 @@ export async function getAllPosts(): Promise<PostListItem[]> {
       posts.push({
         slug: postData.slug,
         meta: postData.meta,
-        fileName: file.name,
+        content: postData.content,
       });
     }
   }

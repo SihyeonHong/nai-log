@@ -1,11 +1,12 @@
-import Link from "next/link";
+import PostList from "@/components/PostList";
+import { getAllPosts } from "@/utils/github";
 
-export default function Container() {
+export default async function Container() {
+  const posts = await getAllPosts();
+
   return (
     <div className="flex flex-1 flex-col gap-1 bg-purple-100 p-4">
-      <Link href="/tester">Go to Tester</Link>
-      <Link href="/blog">blog 목록</Link>
-      <Link href="/ql-classnames">ql-classnames</Link>
+      <PostList posts={posts} />
     </div>
   );
 }
