@@ -1,8 +1,8 @@
-// app/blog/[slug]/page.tsx
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import formatDate from "@/utils/formatDate";
+import Header from "@/components/Header";
+import Post from "@/components/Post";
 import { getAllPosts, getMarkdownContent } from "@/utils/github";
 
 export const revalidate = 3600; // ISR 설정
@@ -21,37 +21,10 @@ export default async function Page({ params }: PostProps) {
     notFound();
   }
 
-  const formattedDate = formatDate(post.meta.uploadedAt);
-
   return (
-    <div className="container mx-auto max-w-4xl px-4 py-8">
-      <article>
-        <header className="mb-8">
-          <h1 className="mb-4 text-4xl">{post.meta.title}</h1>
-
-          <div className="mb-4 text-gray-600">
-            <time dateTime={formattedDate}>{formattedDate}</time>
-          </div>
-
-          {post.meta.tags && post.meta.tags.length > 0 && (
-            <div className="mb-6 flex flex-wrap gap-2">
-              {post.meta.tags.map((tag: string) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-        </header>
-
-        <div
-          className="prose prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
-      </article>
+    <div className="mx-auto max-w-4xl px-4 py-8">
+      <Header />
+      <Post post={post}></Post>
     </div>
   );
 }
