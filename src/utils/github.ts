@@ -1,6 +1,9 @@
 import matter from "gray-matter";
+import rehypeHighlight from "rehype-highlight";
+import rehypeStringify from "rehype-stringify";
 import { remark } from "remark";
-import html from "remark-html";
+import remarkGfm from "remark-gfm";
+import remarkRehype from "remark-rehype";
 
 import type {
   Post,
@@ -75,8 +78,12 @@ export async function getMarkdownContent(
     const { data, content: markdownContent } = matter(content);
 
     // 마크다운을 HTML로 변환
-    const processedContent = await remark().use(html).process(markdownContent);
-
+    const processedContent = await remark()
+      .use(remarkGfm)
+      .use(remarkRehype)
+      .use(rehypeHighlight)
+      .use(rehypeStringify)
+      .process(markdownContent);
     return {
       meta: data as PostMeta,
       content: processedContent.toString(),

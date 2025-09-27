@@ -1,3 +1,8 @@
+"use client";
+
+import { useTheme } from "next-themes";
+import { useEffect } from "react";
+
 import TagsContainer from "@/components/ui/TagsContainer";
 import type { Post } from "@/types/file";
 import formatDate from "@/utils/formatDate";
@@ -7,9 +12,37 @@ interface PostProps {
 }
 
 export default function Post({ post }: PostProps) {
+  const { resolvedTheme } = useTheme();
   const { content } = post;
   const { title, tags, uploadedAt } = post.meta;
+
   const formattedDate = formatDate(uploadedAt);
+
+  // 테마에 따른 highlight.js CSS 동적 로드
+  useEffect(() => {
+    const loadHighlightCSS = () => {
+      // 기존 highlight.js CSS 링크 제거
+      const existingLink = document.querySelector('link[href*="highlight.js"]');
+      if (existingLink) {
+        existingLink.remove();
+      }
+
+      // 새로운 CSS 링크 생성
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.href =
+        resolvedTheme === "dark"
+          ? "https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github-dark.min.css"
+          : "https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github.min.css";
+
+      document.head.appendChild(link);
+    };
+
+    if (resolvedTheme) {
+      loadHighlightCSS();
+    }
+  }, [resolvedTheme]);
+
   return (
     <article>
       <header className="mb-4 flex flex-col gap-4">
