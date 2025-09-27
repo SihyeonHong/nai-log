@@ -20,6 +20,7 @@
   --color-description: var(--description);
   --color-tag-background: var(--tag-background);
   --color-tag-foreground: var(--tag-foreground);
+  --color-post-background: var(--post-background);
 
   /* 새로 추가할 Button 관련 변수들 */
   --color-primary-foreground: var(--primary-foreground);

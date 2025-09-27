@@ -23,7 +23,7 @@ export default function PostList({ posts }: PostListProps) {
           <tr key={post.slug} className="border-b border-[var(--color-border)]">
             <td className="border-r border-[var(--color-border)] p-2">
               <Link
-                href={`/blog/${post.slug}`}
+                href={`/${post.slug}`}
                 className="text-xl font-semibold transition-colors hover:text-purple-700"
               >
                 {post.meta.title}

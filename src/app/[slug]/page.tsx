@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Post from "@/components/Post";
 import { getAllPosts, getMarkdownContent } from "@/utils/github";
@@ -25,6 +26,7 @@ export default async function Page({ params }: PageProps) {
     <div className="mx-auto max-w-4xl px-4 py-8">
       <Header />
       <Post post={post}></Post>
+      <Footer />
     </div>
   );
 }

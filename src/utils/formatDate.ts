@@ -8,5 +8,5 @@ export default function formatDate(dateString: string): string {
     .split("T")[0]
     .split("-")
     .join(".")
-    .replace(/^(\d{4})\.(\d{2})\.(\d{2})$/, "$1년 $2월 $3일");
+    .replace(/^(\d{4})\.(\d{2})\.(\d{2})$/, "$1. $2. $3.");
 }

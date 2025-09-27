@@ -4,16 +4,17 @@
   --tag-background: #e2e0eb; /* Tailwind's gray-200에 보랏빛 추가 */
   --tag-foreground: #374151; /* Tailwind's gray-700 */
 
-  --description: #776581;
-  --sub-description: #9ca3af; /* Tailwind's gray-400 */
+  --description: #6b7280; /* Tailwind's gray-500 */
 }
 
 :root {
   /* light mode only */
-  --background: ##faf5ff; /* Tailwind's purple-50 */
+  --background: #d8c7ec; /* Tailwind's purple-200 */
   --foreground: #1f2937; /* Tailwind's gray-800 */
 
   --border: #d1d5db; /* Tailwind's gray-300 */
+
+  --post-background: #f3e8ff; /* Tailwind's purple-100 */
 }
 
 .dark {
@@ -21,4 +22,6 @@
   --foreground: #e0e0e0; /* Tailwind's gray-200 */
 
   --border: #4b5563; /* Tailwind's gray-600 */
+
+  --post-background: #252525; /* Tailwind's gray-800 */
 }
