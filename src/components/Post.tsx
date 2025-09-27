@@ -18,14 +18,14 @@ export default function Post({ post }: PostProps) {
 
   const formattedDate = formatDate(uploadedAt);
 
-  // 테마에 따른 highlight.js CSS 동적 로드
+  // 테마에 따른 highlight.js CSS 동적 로드 (코드 블록만)
   useEffect(() => {
     const loadHighlightCSS = () => {
       // 기존 highlight.js CSS 링크 제거
-      const existingLink = document.querySelector('link[href*="highlight.js"]');
-      if (existingLink) {
-        existingLink.remove();
-      }
+      const existingLinks = document.querySelectorAll(
+        'link[href*="highlight.js"]',
+      );
+      existingLinks.forEach((link) => link.remove());
 
       // 새로운 CSS 링크 생성
       const link = document.createElement("link");
@@ -49,9 +49,9 @@ export default function Post({ post }: PostProps) {
         <p className="text-4xl font-bold">{title}</p>
       </header>
 
-      <main className="bg-post-background rounded-lg p-4">
+      <main className="bg-post-background p-8">
         <div
-          className="prose prose-lg max-w-none"
+          className="prose prose-lg prose-p:whitespace-pre-wrap prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:bg-opacity-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r prose-pre:p-4 prose-pre:rounded prose-pre:overflow-x-auto max-w-none"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </main>

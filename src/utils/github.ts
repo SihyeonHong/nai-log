@@ -2,6 +2,7 @@ import matter from "gray-matter";
 import rehypeHighlight from "rehype-highlight";
 import rehypeStringify from "rehype-stringify";
 import { remark } from "remark";
+import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 
@@ -80,9 +81,13 @@ export async function getMarkdownContent(
     // 마크다운을 HTML로 변환
     const processedContent = await remark()
       .use(remarkGfm)
-      .use(remarkRehype)
-      .use(rehypeHighlight)
-      .use(rehypeStringify)
+      .use(remarkBreaks) // 옵시디언의 여러 줄바꿈을 <br> 태그로 변환
+      .use(remarkRehype, { allowDangerousHtml: true })
+      .use(rehypeHighlight, {
+        detect: true, // 자동 언어 감지
+        ignoreMissing: true, // 언어가 감지되지 않아도 에러 없이 처리
+      })
+      .use(rehypeStringify, { allowDangerousHtml: true })
       .process(markdownContent);
     return {
       meta: data as PostMeta,
