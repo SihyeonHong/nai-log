@@ -1,27 +1,81 @@
 :root {
   /* 다크 or 라이트 테마 공통 변수 */
-  --title: #9562be; /* Tailwind's purple-800 */
-  --tag-background: #e2e0eb; /* Tailwind's gray-200에 보랏빛 추가 */
-  --tag-foreground: #374151; /* Tailwind's gray-700 */
+  --title: #9562be; /* 메인 포인트 색상 */
 
-  --description: #6b7280; /* Tailwind's gray-500 */
+  /* 로고용 공통 그라데이션 - 브랜드 일관성 */
+  --logo-gradient: linear-gradient(
+    135deg,
+    #9562be 0%,
+    #b794d6 50%,
+    #d4b5f0 100%
+  );
+
+  --tag-background: #f1f5f9; /* 더 부드러운 회색 */
+  --tag-foreground: #475569; /* 더 진한 회색 */
+  --tag-hover: #e2e8f0; /* 호버 효과용 */
+
+  --description: #64748b; /* 더 부드러운 회색 */
+  --muted: #94a3b8; /* 더 연한 회색 */
+
+  /* 액센트 색상들 */
+  --accent: #ec4899; /* 핑크색 액센트 */
+  --accent-hover: #db2777;
+  --success: #10b981; /* 초록색 */
+  --warning: #f59e0b; /* 주황색 */
+  --error: #ef4444; /* 빨간색 */
+
+  /* 그라데이션 */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
 :root {
   /* light mode only */
-  --background: #d8c7ec; /* Tailwind's purple-200 */
-  --foreground: #1f2937; /* Tailwind's gray-800 */
+  --background: #fefefe; /* 거의 흰색 배경 */
+  --background-secondary: #f8fafc; /* 보조 배경 */
+  --foreground: #1e293b; /* 더 진한 텍스트 */
 
-  --border: #d1d5db; /* Tailwind's gray-300 */
+  --border: #e2e8f0; /* 더 부드러운 테두리 */
+  --border-hover: #cbd5e1; /* 호버 시 테두리 */
 
-  --post-background: #f3e8ff; /* Tailwind's purple-100 */
+  --post-background: #ffffff; /* 포스트 배경을 흰색으로 */
+  --card-background: #ffffff; /* 카드 배경 */
+  --card-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --card-shadow-hover:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  /* 포스트 제목용 그라데이션 - 라이트 모드에서 더 진한 색상 */
+  --post-title-gradient: linear-gradient(
+    135deg,
+    #9562be 0%,
+    #a67bc7 50%,
+    #b794d6 100%
+  );
 }
 
 .dark {
-  --background: #1a1a1a; /* Tailwind's gray-900 */
-  --foreground: #e0e0e0; /* Tailwind's gray-200 */
+  --background: #0f0f0f; /* 더 깊은 검은색 */
+  --background-secondary: #1a1a1a; /* 보조 배경 - 포스트 배경과 통일 */
+  --foreground: #e0e0e0;
 
-  --border: #4b5563; /* Tailwind's gray-600 */
+  --border: #2d2d2d; /* 더 부드러운 다크 테두리 */
+  --border-hover: #404040; /* 호버 시 테두리 */
 
-  --post-background: #252525; /* Tailwind's gray-800 */
+  --post-background: #1a1a1a; /* 포스트 배경 */
+  --card-background: #1a1a1a; /* 카드 배경 */
+  --card-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+
+  /* Footer 전용 색상 - 포스트 배경과 통일 */
+  --footer-background: #1a1a1a; /* 포스트 배경과 동일한 색상 */
+
+  /* 포스트 제목용 그라데이션 - 다크 모드에서 더 밝은 색상 */
+  --post-title-gradient: linear-gradient(
+    135deg,
+    #9562be 0%,
+    #b794d6 50%,
+    #d4b5f0 100%
+  );
 }

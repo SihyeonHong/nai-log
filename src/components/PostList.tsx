@@ -10,39 +10,76 @@ interface PostListProps {
 
 export default function PostList({ posts }: PostListProps) {
   return (
-    <table className="w-full">
-      <thead className="border-b border-[var(--color-border)]">
-        <tr>
-          <th className="border-r border-[var(--color-border)] p-2">Title</th>
-          <th className="border-r border-[var(--color-border)] p-2">Date</th>
-          <th className="p-2">Tags</th>
-        </tr>
-      </thead>
-      <tbody>
-        {posts.map((post) => (
-          <tr key={post.slug} className="border-b border-[var(--color-border)]">
-            <td className="border-r border-[var(--color-border)] p-2">
-              <Link
-                href={`/${post.slug}`}
-                className="text-xl font-semibold transition-colors hover:text-purple-700"
-              >
-                {post.meta.title}
-              </Link>
-            </td>
-            <td className="border-r border-[var(--color-border)] p-2">
-              <time
-                className="mb-4 text-gray-600"
-                dateTime={formatDate(post.meta.uploadedAt)}
-              >
-                {formatDate(post.meta.uploadedAt)}
-              </time>
-            </td>
-            <td className="p-2">
-              <TagsContainer tags={post.meta.tags} />
-            </td>
-          </tr>
+    <div className="space-y-6">
+      <div className="mb-8 text-center">
+        <h2 className="gradient-post-title mb-2 text-3xl font-bold">
+          Latest Posts
+        </h2>
+        <p className="text-muted">최신 블로그 포스트들을 확인해보세요</p>
+      </div>
+
+      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+        {posts.map((post, index) => (
+          <article
+            key={post.slug}
+            className="card animate-fade-in-up p-4 transition-all duration-300 hover:scale-[1.02] sm:p-6"
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                <Link
+                  href={`/${post.slug}`}
+                  className="text-foreground hover:text-accent group flex-1 text-lg font-bold transition-colors duration-200 sm:text-xl"
+                >
+                  <span className="decoration-accent decoration-2 underline-offset-4 group-hover:underline">
+                    {post.meta.title}
+                  </span>
+                </Link>
+                <time
+                  className="text-muted flex items-center gap-1 self-start text-sm whitespace-nowrap sm:self-auto"
+                  dateTime={formatDate(post.meta.uploadedAt)}
+                >
+                  <svg
+                    className="h-4 w-4"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  {formatDate(post.meta.uploadedAt)}
+                </time>
+              </div>
+
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <TagsContainer tags={post.meta.tags} />
+                <Link
+                  href={`/${post.slug}`}
+                  className="text-accent hover:text-accent-hover group flex items-center gap-1 self-start text-sm font-medium sm:self-auto"
+                >
+                  Read more
+                  <svg
+                    className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </article>
         ))}
-      </tbody>
-    </table>
+      </div>
+    </div>
   );
 }

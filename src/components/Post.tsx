@@ -44,26 +44,39 @@ export default function Post({ post }: PostProps) {
   }, [resolvedTheme]);
 
   return (
-    <article>
-      <header className="mb-4 flex flex-col gap-4">
-        <p className="text-4xl font-bold">{title}</p>
-      </header>
-
-      <main className="bg-post-background p-8">
+    <article className="animate-fade-in-up">
+      <main className="bg-post-background border-border rounded-lg border p-6 shadow-sm sm:p-8 md:p-10">
+        <header className="mb-12">
+          <h1 className="text-3xl leading-tight font-bold sm:text-4xl md:text-5xl">
+            {title}
+          </h1>
+        </header>
         <div
-          className="prose prose-lg prose-p:whitespace-pre-wrap prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:bg-opacity-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r prose-pre:p-4 prose-pre:rounded prose-pre:overflow-x-auto max-w-none"
+          className="prose prose-lg prose-p:whitespace-pre-wrap prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:bg-opacity-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r prose-pre:p-4 prose-pre:rounded prose-pre:overflow-x-auto prose-pre:border prose-pre:border-border max-w-none"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </main>
 
-      <footer>
-        <div className="my-4 inline-flex gap-2">
-          <span className="text-description">Uploaded at:</span>
-          <time className="text-description" dateTime={formattedDate}>
-            {formattedDate}
-          </time>
+      <footer className="bg-post-background border-border mt-6 rounded-lg border p-4 shadow-sm sm:p-6">
+        <div className="flex flex-col gap-4">
+          <div className="text-muted flex items-center gap-2">
+            <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span className="text-sm font-medium">Published on</span>
+            <time
+              className="text-accent text-sm font-semibold"
+              dateTime={formattedDate}
+            >
+              {formattedDate}
+            </time>
+          </div>
+          <TagsContainer tags={tags} />
         </div>
-        <TagsContainer tags={tags} />
       </footer>
     </article>
   );

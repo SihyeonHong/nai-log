@@ -23,9 +23,11 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-8">
+    <div className="bg-background min-h-screen">
       <Header />
-      <Post post={post}></Post>
+      <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
+        <Post post={post}></Post>
+      </main>
       <Footer />
     </div>
   );

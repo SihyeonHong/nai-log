@@ -16,34 +16,35 @@ export default function ThemeSwitcher() {
 
   if (!mounted) {
     // Prevents hydration mismatch
-    return <button disabled>Loading...</button>;
+    return (
+      <div className="bg-background-secondary h-6 w-12 animate-pulse rounded-full" />
+    );
   }
-
-  const darkClasses = `bg-gray-600 dark:bg-gray-500`;
-  const lightClasses = `bg-gray-200 dark:bg-gray-600`;
-  const resolvedClasses = resolvedTheme === "dark" ? darkClasses : lightClasses;
-
-  const baseClassses = `relative inline-flex items-center w-11 h-6
-    rounded-full border-2 border-transparent
-    transition-colors duration-200 ease-in-out focus:outline-none 
-    focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2
-    dark:focus:ring-offset-gray-800`;
-
-  const buttonClasses = `inline-block h-5 w-5 transform rounded-full bg-white
-    shadow ring-0 transition duration-200 ease-in-out
-    ${resolvedTheme === "dark" ? "translate-x-5" : "translate-x-0"}`;
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
 
   return (
-    <button className={cn(baseClassses, resolvedClasses)} onClick={toggleTheme}>
-      <span className={cn(buttonClasses)}>
+    <button
+      onClick={toggleTheme}
+      className={cn(
+        "relative inline-flex h-6 w-12 items-center rounded-full transition-all duration-300 ease-in-out",
+        "focus:ring-offset-background focus:ring-2 focus:ring-offset-2 focus:outline-none",
+        "hover:scale-105 active:scale-95",
+        resolvedTheme === "dark" ? "bg-gray-600" : "bg-gray-200",
+      )}
+    >
+      <span
+        className={cn(
+          "inline-flex h-5 w-5 transform items-center justify-center rounded-full bg-white shadow-lg transition-all duration-300 ease-in-out",
+          resolvedTheme === "dark" ? "translate-x-6" : "translate-x-0",
+        )}
+      >
         {resolvedTheme === "dark" ? (
-          <Moon className="mx-auto h-5 w-5 p-1 text-gray-800" />
+          <Moon className="h-3 w-3 text-gray-800" />
         ) : (
-          <Sun className="mx-auto h-5 w-5 p-1 text-gray-800" />
+          <Sun className="h-3 w-3 text-gray-800" />
         )}
       </span>
     </button>
