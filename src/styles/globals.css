@@ -19,19 +19,24 @@
   --color-foreground: var(--foreground);
   --color-border: var(--border);
   --color-border-hover: var(--border-hover);
-  --color-title: var(--title);
   --color-description: var(--description);
   --color-muted: var(--muted);
   --color-tag-background: var(--tag-background);
   --color-tag-foreground: var(--tag-foreground);
   --color-tag-hover: var(--tag-hover);
   --color-post-background: var(--post-background);
-  --color-card-background: var(--card-background);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-error: var(--error);
+  --color-theme-switcher-light: var(--theme-switcher-light);
+  --color-theme-switcher-light-hover: var(--theme-switcher-light-hover);
+  --color-theme-switcher-dark: var(--theme-switcher-dark);
+  --color-theme-switcher-dark-hover: var(--theme-switcher-dark-hover);
 
   /* 그라데이션 변수들 */
   --gradient-logo: var(--logo-gradient);
@@ -101,10 +106,26 @@ body {
   background: rgb(var(--color-border-hover));
 }
 
-/* 선택 텍스트 스타일 */
+/* 선택 텍스트 스타일 - 직접 색상 값 사용 */
 ::selection {
-  background: rgb(var(--color-accent));
-  color: white;
+  background: #9562be !important;
+  color: white !important;
+}
+
+*::selection {
+  background: #9562be !important;
+  color: white !important;
+}
+
+*::-moz-selection {
+  background: #9562be !important;
+  color: white !important;
+}
+
+/* 추가적인 브라우저 지원 */
+::-webkit-selection {
+  background: #9562be !important;
+  color: white !important;
 }
 
 /* 포커스 스타일 */
@@ -116,7 +137,7 @@ body {
 /* Prose 스타일 커스터마이징 */
 .prose {
   --tw-prose-body: rgb(var(--color-foreground));
-  --tw-prose-headings: rgb(var(--color-title));
+  --tw-prose-headings: rgb(var(--color-primary));
   --tw-prose-lead: rgb(var(--color-description));
   --tw-prose-links: rgb(var(--color-accent));
   --tw-prose-bold: rgb(var(--color-foreground));
@@ -171,7 +192,6 @@ body {
   font-weight: 500;
   font-family: var(--font-mono);
   border: 1px solid rgb(var(--color-border));
-  transition: all 0.2s ease;
 }
 
 .prose code::before,
@@ -179,23 +199,11 @@ body {
   content: "";
 }
 
-.prose code:hover {
-  background-color: rgb(var(--color-accent));
-  color: white;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 /* 다크 테마에서의 인라인 코드 스타일 */
 .dark .prose code {
   background-color: rgb(var(--color-background));
   color: rgb(var(--color-accent));
   border-color: rgb(var(--color-border));
-}
-
-.dark .prose code:hover {
-  background-color: rgb(var(--color-accent));
-  color: white;
 }
 
 /* 다크 테마에서의 prose 스타일 */
@@ -221,19 +229,7 @@ body {
   background-clip: text;
 }
 
-.card {
-  background: rgb(var(--color-card-background));
-  border-radius: 0.75rem;
-  box-shadow: var(--card-shadow);
-  transition: all 0.3s ease;
-  border: 1px solid rgb(var(--color-border));
-}
-
-.card:hover {
-  transform: translateY(-2px);
-}
-
-/* 코드블록은 카드 호버 효과 제외 */
+/* 코드블록은 호버 효과 제외 */
 .prose pre {
   transition: none !important;
   transform: none !important;

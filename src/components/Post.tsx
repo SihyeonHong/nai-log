@@ -3,6 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect } from "react";
 
+import StaticCard from "@/components/ui/StaticCard";
 import TagsContainer from "@/components/ui/TagsContainer";
 import type { Post } from "@/types/file";
 import formatDate from "@/utils/formatDate";
@@ -45,7 +46,7 @@ export default function Post({ post }: PostProps) {
 
   return (
     <article className="animate-fade-in-up">
-      <main className="bg-post-background border-border rounded-lg border p-6 shadow-sm sm:p-8 md:p-10">
+      <StaticCard>
         <header className="mb-12">
           <h1 className="text-3xl leading-tight font-bold sm:text-4xl md:text-5xl">
             {title}
@@ -55,9 +56,9 @@ export default function Post({ post }: PostProps) {
           className="prose prose-lg prose-p:whitespace-pre-wrap prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:bg-opacity-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r prose-pre:p-4 prose-pre:rounded prose-pre:overflow-x-auto prose-pre:border prose-pre:border-border max-w-none"
           dangerouslySetInnerHTML={{ __html: content }}
         />
-      </main>
+      </StaticCard>
 
-      <footer className="bg-post-background border-border mt-6 rounded-lg border p-4 shadow-sm sm:p-6">
+      <StaticCard className="mt-6 p-4 sm:p-6">
         <div className="flex flex-col gap-4">
           <div className="text-muted flex items-center gap-2">
             <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
@@ -77,7 +78,7 @@ export default function Post({ post }: PostProps) {
           </div>
           <TagsContainer tags={tags} />
         </div>
-      </footer>
+      </StaticCard>
     </article>
   );
 }

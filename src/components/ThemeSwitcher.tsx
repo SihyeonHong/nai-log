@@ -32,7 +32,9 @@ export default function ThemeSwitcher() {
         "relative inline-flex h-6 w-12 items-center rounded-full transition-all duration-300 ease-in-out",
         "focus:ring-offset-background focus:ring-2 focus:ring-offset-2 focus:outline-none",
         "hover:scale-105 active:scale-95",
-        resolvedTheme === "dark" ? "bg-gray-600" : "bg-gray-200",
+        resolvedTheme === "dark"
+          ? "bg-primary"
+          : "from-theme-switcher-light to-theme-switcher-light-hover bg-gradient-to-r",
       )}
     >
       <span
@@ -42,9 +44,9 @@ export default function ThemeSwitcher() {
         )}
       >
         {resolvedTheme === "dark" ? (
-          <Moon className="h-3 w-3 text-gray-800" />
+          <Moon className="text-primary h-3 w-3" />
         ) : (
-          <Sun className="h-3 w-3 text-gray-800" />
+          <Sun className="text-theme-switcher-light h-3 w-3" />
         )}
       </span>
     </button>
