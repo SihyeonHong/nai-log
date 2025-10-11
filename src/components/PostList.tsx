@@ -24,9 +24,9 @@ export default function PostList({ posts }: PostListProps) {
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <Link
                   href={`/${post.slug}`}
-                  className="text-foreground hover:text-accent group flex-1 text-lg font-bold transition-colors duration-200 sm:text-xl"
+                  className="text-foreground hover:text-primary group flex-1 text-lg font-bold transition-colors duration-200 sm:text-xl"
                 >
-                  <span className="decoration-accent decoration-2 underline-offset-4 group-hover:underline">
+                  <span className="decoration-primary decoration-2 underline-offset-4 group-hover:underline">
                     {post.meta.title}
                   </span>
                 </Link>
@@ -73,7 +73,7 @@ export default function PostList({ posts }: PostListProps) {
 
                   <Link
                     href={`/${post.slug}`}
-                    className="text-accent hover:text-accent-hover group flex items-center gap-1 text-sm font-medium whitespace-nowrap"
+                    className="text-primary hover:text-primary-hover group flex items-center gap-1 text-sm font-medium whitespace-nowrap"
                   >
                     Read more
                     <svg

@@ -53,7 +53,7 @@ export default function Post({ post }: PostProps) {
           </h1>
         </header>
         <div
-          className="prose prose-lg prose-p:whitespace-pre-wrap prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:bg-opacity-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r prose-pre:p-4 prose-pre:rounded prose-pre:overflow-x-auto prose-pre:border prose-pre:border-border max-w-none"
+          className="prose prose-p:whitespace-pre-wrap prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:py-2 prose-blockquote:px-4 prose-code:before:content-none prose-code:after:content-none max-w-none"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </StaticCard>
@@ -70,7 +70,7 @@ export default function Post({ post }: PostProps) {
             </svg>
             <span className="text-sm font-medium">Published on</span>
             <time
-              className="text-accent text-sm font-semibold"
+              className="text-primary text-sm font-semibold"
               dateTime={formattedDate}
             >
               {formattedDate}
