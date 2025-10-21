@@ -80,8 +80,8 @@ export async function getMarkdownContent(
 
     // 마크다운을 HTML로 변환
     const processedContent = await remark()
-      .use(remarkGfm)
       .use(remarkBreaks) // 옵시디언의 여러 줄바꿈을 <br> 태그로 변환
+      .use(remarkGfm)
       .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeHighlight, {
         detect: true, // 자동 언어 감지

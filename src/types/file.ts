@@ -7,6 +7,7 @@ export interface Post {
 export interface PostMeta {
   // 필수 필드
   title: string;
+  type: "article" | "nugget" | "story";
   tags: string[];
   uploadedAt: string;
 
@@ -15,7 +16,8 @@ export interface PostMeta {
   isPublished?: boolean;
   description?: string;
   thumbnail?: string;
-  isFeatured?: boolean;
+  series?: string;
+  seriesOrder?: number;
 }
 
 export interface GitHubFile {
