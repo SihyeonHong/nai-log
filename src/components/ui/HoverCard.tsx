@@ -20,7 +20,7 @@ export default function HoverCard({
   return (
     <article
       className={cn(
-        "card animate-fade-in-up p-4 transition-all duration-300 hover:scale-[1.02] sm:p-6",
+        "bg-card-background animate-fade-in-up border-border rounded-sm border p-4 shadow-md transition-all duration-300 hover:scale-[1.02] sm:p-6",
         className,
       )}
       style={{ animationDelay }}

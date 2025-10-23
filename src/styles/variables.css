@@ -1,17 +1,15 @@
 /* 다크 or 라이트 테마 공통 변수 */
 :root {
+  --primary: #264d00; /* 메인 녹색 */
+  --primary-hover: #1a3300; /* 호버 시 조금 더 진한 녹색 */
+
+  --muted: #8a8781;
+
   --tag-background: #f1f5f9; /* 더 부드러운 회색 */
   --tag-foreground: #475569; /* 더 진한 회색 */
   --tag-hover: #e2e8f0; /* 호버 효과용 */
 
-  --description: #64748b; /* 더 부드러운 회색 */
-  --muted: #94a3b8; /* 더 연한 회색 */
-
-  /* Primary 색상 */
-  --primary: #264d00; /* 메인 녹색 */
-  --primary-hover: #1a3300; /* 호버 시 조금 더 진한 녹색 */
-
-  /* ThemeSwitcher 색상들 */
+  /* ThemeSwitcher */
   --theme-switcher-light: #fbbf24; /* 노란색 */
   --theme-switcher-light-hover: #f59e0b; /* 주황색 */
   --theme-switcher-dark: var(--primary); /* 메인 녹색 사용 */
@@ -20,26 +18,24 @@
 
 /* light mode only */
 :root {
-  --background: #fefefe; /* 거의 흰색 배경 */
-  --background-secondary: #f8fafc; /* 보조 배경 */
-  --foreground: #1e293b; /* 더 진한 텍스트 */
+  --background: #ffffff;
+  --foreground: #1a1a1a; /* 기본 폰트 색상 */
 
-  --border: #e2e8f0; /* 더 부드러운 테두리 */
-  --border-hover: #cbd5e1; /* 호버 시 테두리 */
+  --border: #e5e5e5;
 
-  --post-background: #ffffff; /* 포스트 배경을 흰색으로 */
+  --card-background: #ffffff;
+  --code-background: #f8f7ed;
+  --footer-background: #f8fafc;
 }
 
 .dark {
-  --background: #0f0f0f; /* 더 깊은 검은색 */
-  --background-secondary: #1a1a1a; /* 보조 배경 - 포스트 배경과 통일 */
-  --foreground: #e0e0e0;
+  --background: #1a1816; /* 더 어두운 색: #0f0f0f */
+  --foreground: #d8d6ce;
+  --secondary: #b8b5ad; /* 안 쓰는데 그냥 예뻐서 남겨둠 좀 더 흐린 텍스트 색상 */
 
-  --border: #2d2d2d; /* 더 부드러운 다크 테두리 */
-  --border-hover: #404040; /* 호버 시 테두리 */
+  --border: #3a3732;
 
-  --post-background: #1a1a1a; /* 포스트 배경 */
-
-  /* Footer 전용 색상 - 포스트 배경과 통일 */
-  --footer-background: #1a1a1a; /* 포스트 배경과 동일한 색상 */
+  --card-background: #1a1816;
+  --code-background: #1a1816;
+  --footer-background: #1a1816;
 }

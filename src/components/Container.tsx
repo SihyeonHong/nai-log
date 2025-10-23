@@ -5,7 +5,7 @@ export default async function Container() {
   const posts = await getAllPosts();
 
   return (
-    <main className="bg-background-secondary min-h-screen flex-1">
+    <main className="bg-background min-h-screen flex-1">
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
         <PostList posts={posts} />
       </div>

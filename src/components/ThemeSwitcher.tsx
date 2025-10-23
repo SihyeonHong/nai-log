@@ -16,9 +16,7 @@ export default function ThemeSwitcher() {
 
   if (!mounted) {
     // Prevents hydration mismatch
-    return (
-      <div className="bg-background-secondary h-6 w-12 animate-pulse rounded-full" />
-    );
+    return <div className="bg-muted h-6 w-12 animate-pulse rounded-full" />;
   }
 
   const toggleTheme = () => {
@@ -33,7 +31,7 @@ export default function ThemeSwitcher() {
         "focus:ring-offset-background focus:ring-2 focus:ring-offset-2 focus:outline-none",
         "hover:scale-105 active:scale-95",
         resolvedTheme === "dark"
-          ? "bg-primary"
+          ? "from-theme-switcher-dark to-theme-switcher-dark-hover bg-gradient-to-r"
           : "from-theme-switcher-light to-theme-switcher-light-hover bg-gradient-to-r",
       )}
     >
@@ -44,7 +42,7 @@ export default function ThemeSwitcher() {
         )}
       >
         {resolvedTheme === "dark" ? (
-          <Moon className="text-primary h-3 w-3" />
+          <Moon className="text-theme-switcher-dark h-3 w-3" />
         ) : (
           <Sun className="text-theme-switcher-light h-3 w-3" />
         )}
