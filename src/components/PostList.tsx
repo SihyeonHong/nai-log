@@ -24,7 +24,7 @@ export default function PostList({ posts }: PostListProps) {
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <Link
                   href={`/${post.slug}`}
-                  className="text-foreground hover:text-primary group flex-1 text-lg font-bold transition-colors duration-200 sm:text-xl"
+                  className="hover:text-primary group flex-1 text-lg font-bold transition-colors duration-200 sm:text-xl"
                 >
                   <span className="decoration-primary decoration-2 underline-offset-4 group-hover:underline">
                     {post.meta.title}

@@ -15,7 +15,7 @@ export default function StaticCard({ children, className }: StaticCardProps) {
   return (
     <div
       className={cn(
-        "bg-post-background border-border rounded-lg border p-6 shadow-sm sm:p-8 md:p-10",
+        "bg-card-background border-border rounded-sm border p-6 shadow-sm sm:p-8 md:p-10",
         className,
       )}
     >
