@@ -24,7 +24,8 @@
   --border: #e5e5e5;
 
   --card-background: #ffffff;
-  --code-background: #f8f7ed;
+  --code-block-background: #f9fafb;
+  --code-inline-background: #f3f4f6;
   --footer-background: #f8fafc;
 }
 
@@ -36,6 +37,7 @@
   --border: #3a3732;
 
   --card-background: #1a1816;
-  --code-background: #1a1816;
+  --code-block-background: #272522;
+  --code-inline-background: #32302c;
   --footer-background: #1a1816;
 }

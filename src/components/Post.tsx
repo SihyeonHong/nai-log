@@ -48,12 +48,12 @@ export default function Post({ post }: PostProps) {
     <article className="animate-fade-in-up">
       <StaticCard>
         <header className="mb-12">
-          <h1 className="text-3xl leading-tight font-bold sm:text-4xl md:text-5xl">
+          <h1 className="border-border border-b pb-4 text-3xl leading-tight font-bold sm:text-4xl">
             {title}
           </h1>
         </header>
         <div
-          className="text-foreground prose prose-p:whitespace-pre-wrap prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:py-2 prose-blockquote:px-4 prose-code:before:content-none prose-code:after:content-none max-w-none"
+          className="text-foreground prose prose-p:whitespace-pre-wrap prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:py-2 prose-blockquote:px-4 code-style max-w-none"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </StaticCard>
