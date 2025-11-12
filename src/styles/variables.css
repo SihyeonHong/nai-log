@@ -5,7 +5,6 @@
 
   --muted: #8a8781;
 
-  --tag-background: #f1f5f9; /* 더 부드러운 회색 */
   --tag-foreground: #475569; /* 더 진한 회색 */
   --tag-hover: #e2e8f0; /* 호버 효과용 */
 
@@ -22,6 +21,8 @@
   --foreground: #1a1a1a; /* 기본 폰트 색상 */
 
   --border: #e5e5e5;
+
+  --tag-background: #f1f5f9; /* 더 부드러운 회색 */
 
   --card-background: #ffffff;
   --code-block-background: #f9fafb;
@@ -40,4 +41,6 @@
   --code-block-background: #272522;
   --code-inline-background: #32302c;
   --footer-background: #1a1816;
+
+  --tag-background: #e0e4e8; /* 라이트 모드보다 약간 어두운 회색 */
 }

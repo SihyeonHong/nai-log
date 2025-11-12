@@ -29,7 +29,8 @@
   --color-theme-switcher-dark: var(--theme-switcher-dark);
   --color-theme-switcher-dark-hover: var(--theme-switcher-dark-hover);
 
-  --font-mono: "Consolas", "Monaco", "Courier New", monospace;
+  --font-family-mono: "Consolas", "Monaco", "Courier New", monospace;
+  --font-mono: var(--font-family-mono);
 }
 
 * {
@@ -59,13 +60,12 @@ body {
     "calt" 1;
 }
 
-/* 포커스 스타일 */
-*:focus-visible {
-  outline: 2px solid rgb(var(--color-primary));
-  outline-offset: 2px;
-}
-
 /* 커스텀 유틸리티 클래스들 */
+
+/* font-mono 클래스 오버라이드 */
+.font-mono {
+  font-family: var(--font-mono);
+}
 
 /* 코드 스타일링 - prose에서 독립 */
 
@@ -73,7 +73,7 @@ body {
 .code-style code {
   font-family: var(--font-mono);
   background-color: var(--code-inline-background);
-  color: rgb(var(--color-foreground));
+  color: rgb(var(--color-foreground)) !important;
   padding: 0.125rem 0.375rem;
   font-size: 0.875rem;
 }
@@ -106,6 +106,12 @@ body {
 .code-style pre[class*="language-"],
 .code-style code[class*="language-"] {
   font-family: var(--font-mono);
+}
+
+/* highlight.js가 인라인 코드에 영향을 주지 않도록 (pre 내부가 아니고 language 클래스가 없는 경우) */
+.code-style code:not(pre code):not([class*="language-"]) {
+  color: rgb(var(--color-foreground)) !important;
+  background-color: var(--code-inline-background) !important;
 }
 
 /* 애니메이션 */
@@ -154,15 +160,70 @@ body {
 .prose p,
 .prose ul,
 .prose ol,
-.prose li,
-.prose blockquote {
+.prose li {
   color: rgb(var(--color-foreground)) !important;
+}
+
+/* blockquote 스타일 커스터마이징 */
+.prose blockquote {
+  color: rgb(var(--color-muted)) !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+}
+
+/* blockquote 내부의 모든 텍스트 요소에도 muted 색상 적용 */
+.prose blockquote * {
+  color: rgb(var(--color-muted)) !important;
+}
+
+/* blockquote의 큰따옴표 제거 - Tailwind Typography는 p:first-of-type에 큰따옴표를 추가 */
+.prose blockquote::before {
+  content: none !important;
+  display: none !important;
+}
+
+.prose blockquote::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Tailwind Typography의 blockquote 첫 번째 p 태그의 ::before와 ::after 제거 */
+.prose blockquote p:first-of-type::before {
+  content: none !important;
+  display: none !important;
+}
+
+.prose blockquote p:first-of-type::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* blockquote 내부의 텍스트 요소들의 ::before와 ::after 제거 (코드 블록 제외) */
+.prose blockquote p::before,
+.prose blockquote p::after,
+.prose blockquote > *:not(pre):not(code)::before,
+.prose blockquote > *:not(pre):not(code)::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* 볼드체 색상 명시적 지정 */
+.prose strong,
+.prose b {
+  color: rgb(var(--color-foreground)) !important;
+  font-weight: 700;
 }
 
 /* prose의 코드 색상 변수를 transparent로 */
 .prose {
   --tw-prose-code: transparent;
   --tw-prose-pre-code: transparent;
+  /* blockquote 큰따옴표 제거 - CSS 변수로 제어 */
+  --tw-prose-quotes: none;
+  --tw-prose-quote-before: none;
+  --tw-prose-quote-after: none;
+  /* blockquote 색상을 muted로 */
+  --tw-prose-quotes-color: rgb(var(--color-muted));
 }
 
 /* 그리고 hljs가 자신의 색상을 자유롭게 사용하도록 */

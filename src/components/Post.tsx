@@ -53,7 +53,7 @@ export default function Post({ post }: PostProps) {
           </h1>
         </header>
         <div
-          className="text-foreground prose prose-p:whitespace-pre-wrap prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:py-2 prose-blockquote:px-4 code-style max-w-none"
+          className="text-foreground prose prose-p:whitespace-pre-wrap prose-ul:list-disc prose-ol:list-decimal prose-li:ml-4 prose-blockquote:border-l-4 prose-blockquote:pl-4 prose-blockquote:py-2 prose-blockquote:px-4 code-style max-w-none"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </StaticCard>
