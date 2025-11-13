@@ -1,7 +1,14 @@
+import Main from "@/components/main";
+import SideBar from "@/components/SideBar";
+
 export default function Page() {
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center">
-      <p className="text-muted">새로운 디자인 준비 중...</p>
+    <div className="min-h-screen bg-stone-100">
+      <header className="flex justify-between p-2">
+        <span className="font-mono">sih.log</span>
+      </header>
+      <Main />
+      <SideBar />
     </div>
   );
 }

@@ -12,6 +12,7 @@
   --color-primary-hover: var(--primary-hover);
   --color-secondary: var(--secondary);
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
   --color-border: var(--border);
   --color-muted: var(--muted);
@@ -21,7 +22,6 @@
   --color-tag-hover: var(--tag-hover);
   --color-code-block-background: var(--code-block-background);
   --color-code-inline-background: var(--code-inline-background);
-  --color-footer-background: var(--footer-background);
 
   /* ThemeSwitcher */
   --color-theme-switcher-light: var(--theme-switcher-light);
@@ -47,7 +47,7 @@
 }
 
 body {
-  background: rgb(var(--color-background));
+  background: #fafaf9; /* stone-50 */
   color: rgb(var(--color-foreground));
   border-color: rgb(var(--color-border));
   transition:
