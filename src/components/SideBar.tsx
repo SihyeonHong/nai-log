@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronRight, PanelRightOpen } from "lucide-react";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
+import ThemeSwitcher from "@/components/theme-switcher";
 
 export default function SideBar() {
   const [isCollapsed, setIsCollapsed] = useState(false);

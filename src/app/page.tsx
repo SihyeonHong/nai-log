@@ -1,12 +1,11 @@
 import Main from "@/components/main";
-import SideBar from "@/components/SideBar";
+import SideBar from "@/components/sidebar";
+import Header from "@/components/ui/header";
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-stone-100">
-      <header className="flex justify-between p-2">
-        <span className="font-mono">sih.log</span>
-      </header>
+    <div className="bg-background text-foreground border-border min-h-screen border">
+      <Header />
       <Main />
       <SideBar />
     </div>

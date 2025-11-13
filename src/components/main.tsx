@@ -1,6 +1,6 @@
 export default function Main() {
   return (
-    <main className="bg-background m-12 max-w-4xl flex-1 p-4 shadow-xl">
+    <main className="bg-main-bg m-12 max-w-4xl flex-1 p-4 shadow-xl">
       컨테이너
       <p>아무거나 길게</p>
       <p>아무거나 길게</p>
