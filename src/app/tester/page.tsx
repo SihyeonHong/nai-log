@@ -1,7 +1,7 @@
-import Container from "@/components/Container";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Post from "@/components/Post";
+import Container from "@/components/tester/Container";
+import Footer from "@/components/tester/Footer";
+import Header from "@/components/tester/Header";
+import Post from "@/components/tester/Post";
 import { getAllPosts, getMarkdownContent } from "@/utils/github";
 
 export default async function Page() {

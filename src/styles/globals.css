@@ -14,7 +14,6 @@
   --color-background: var(--background);
   --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
-  --color-main-bg: var(--main-bg);
   --color-border: var(--border);
   --color-muted: var(--muted);
   --color-card-background: var(--card-background);
@@ -34,6 +33,11 @@
 }
 
 * {
+  word-wrap: break-word;
+}
+
+/* 기본 폰트는 body에만 적용 */
+body {
   font-family:
     "Gowun Dodum",
     -apple-system,
@@ -43,10 +47,6 @@
     "Helvetica Neue",
     Arial,
     sans-serif;
-  word-wrap: break-word;
-}
-
-body {
   font-feature-settings:
     "kern" 1,
     "liga" 1,
